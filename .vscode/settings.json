@@ -1,0 +1,11 @@
+{
+    "python.envFile": "${workspaceFolder}/.env.debug",
+    "python.linting.pylintArgs": [
+        // pylint-django
+        // https://github.com/PyCQA/pylint-django
+        "--load-plugins",
+        "pylint_django",
+        "--django-settings-module",
+        "project.debug"
+    ]
+}

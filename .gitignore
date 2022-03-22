@@ -1,0 +1,22 @@
+# Global files
+*.bak
+*.orig
+
+# Python venv - Creation of virtual environments
+# https://docs.python.org/3/library/venv.html
+.venv
+
+# Python Modules Compiled Python files
+# https://docs.python.org/3/tutorial/modules.html#compiled-python-files
+__pycache__
+
+# Sqlite3 Database file
+db.sqlite3
+
+# Django Local App migrations directory
+migrations
+
+
+# Introspection Schema file with graphen-django
+# https://docs.graphene-python.org/projects/django/en/latest/introspection/#introspection-schema
+schema.graphql
