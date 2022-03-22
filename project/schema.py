@@ -3,12 +3,13 @@ import graphene
 from graphene import Field, ObjectType
 from graphene_django.debug import DjangoDebug
 
+from ingredients.schema import Query as IngredientsQuery
 
-class Query(ObjectType):
+
+class Query(IngredientsQuery, ObjectType):
     """Root Query."""
 
     debug = Field(DjangoDebug, name='_debug')
-    hello = graphene.String(default_value="Hi!")
 
 
 schema = graphene.Schema(query=Query)

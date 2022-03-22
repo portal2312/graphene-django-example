@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     # graphene-django
     # https://docs.graphene-python.org/projects/django/en/latest/installation/
     'graphene_django',
+
+    # local apps
+    'ingredients',
 ]
 
 MIDDLEWARE = [

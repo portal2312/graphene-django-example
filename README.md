@@ -4,24 +4,21 @@
 
 ## Installation
 
-Make migrate files:
+Django [`makemigrations`](https://docs.djangoproject.com/en/4.0/ref/django-admin/#makemigrations) 명령어를 사용하여 _local app_ 들의 migrate 파일을 생성합니다:
 
 ```bash
 python manage.py makemigrations ingredients
 ```
 
-- [`makemigrations`](https://docs.djangoproject.com/en/4.0/ref/django-admin/#makemigrations): Make migrate file.
 - `ingredients`: Local app.
 
-Migrate:
+Django [`migrate`](https://docs.djangoproject.com/en/4.0/ref/django-admin/#migrate) 명령어를 사용하여 table 을 생성합니다:
 
 ```bash
 python manage.py migrate
 ```
 
-- [`migrate`](https://docs.djangoproject.com/en/4.0/ref/django-admin/#migrate)
-
-Create super user:
+Django [`createsuperuser`](https://docs.djangoproject.com/en/4.0/ref/django-admin/#createsuperuser) 명령어을 사용하여 _superuser_ 를 생성합니다:
 
 ```bash
 python manage.py createsuperuser
@@ -33,27 +30,50 @@ python manage.py createsuperuser
 # Superuser created successfully.
 ```
 
-- [`createsuperuser`](https://docs.djangoproject.com/en/4.0/ref/django-admin/#createsuperuser)
-
-Load data:
+Django [`loaddata`](https://docs.djangoproject.com/en/4.0/ref/django-admin/#loaddata) 명령어를 사용하여 _local app_ 들의 `fixtures` 디렉터리에 있는 `*.json` 파일을 불러온 후 데이터를 삽입합니다:
 
 ```bash
 python manage.py loaddata ingredients
 ```
 
-- [`loaddata`](https://docs.djangoproject.com/en/4.0/ref/django-admin/#loaddata)
+## Usage
 
-Run server:
+### Runserver
+
+Django [`runserver`](https://docs.djangoproject.com/en/4.0/ref/django-admin/#runserver) 명령어를 사용하여 서버를 시작합니다.
+
+#### Runserver for Production
+
+시작 전 `project/settings.py` 에서 아래 설정 값을 확인하십시오:
+
+- `DEBUG`: 반드시 Production 은 `False` 입니다.
+- `ALLOWED_HOSTS`: 접근 가능한 IP 가 포함되어 있는지 확인하십시오.
+
+배포 가능한 설정으로 서버를 시작합니다:
+
+```bash
+python manage.py runserver 0.0.0.0:8000
+```
+
+#### Runserver for Development
+
+_debug_ 가능한 설정으로 서버를 시작합니다:
 
 ```bash
 python manage.py runserver --settings project.debug 0.0.0.0:8000
 ```
 
-- [`runserver`](https://docs.djangoproject.com/en/4.0/ref/django-admin/#runserver)
-- [`--settings`](https://docs.djangoproject.com/en/4.0/ref/django-admin/#cmdoption-settings): 사용할 설정 모듈을 지정합니다.
-- `project.debug`: `project/debug.py` 을 의미합니다.
+- `project.debug`: `project/settings.py` 에 debug 가능한 설정이 병합된 `project/debug.py` 입니다.
 
-## Usage
+### Introspection Schema
+
+작성된 모든 schema 를 `schema.graphql` 파일로 생성합니다:
+
+```bash
+python manage.py graphql_schema --out schema.graphql
+```
+
+Refer to [Introspection Schema](https://docs.graphene-python.org/projects/django/en/latest/introspection/#introspection-schema).
 
 ### Django Admin Web Page
 
