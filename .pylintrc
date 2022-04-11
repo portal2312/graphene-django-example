@@ -86,8 +86,11 @@ disable=raw-checker-failed,
         useless-suppression,
         deprecated-pragma,
         use-symbolic-message-instead,
+        # Support to "graphene-django" library.
         no-self-argument,
-        unused-argument
+        unused-argument,
+        pointless-statement,
+        attribute-defined-outside-init
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -143,7 +146,9 @@ additional-builtins=
 allow-global-unused-variables=yes
 
 # List of names allowed to shadow builtins
-allowed-redefined-builtins=
+allowed-redefined-builtins=id,
+                           input,
+                           type
 
 # List of strings which can identify a callback function by name. A callback
 # name must start or end with one of those strings.
@@ -357,7 +362,13 @@ good-names=i,
            k,
            ex,
            Run,
-           _
+           _,
+           # Support to all modules.
+           e,
+           f,
+           id,
+           pk,
+           qs
 
 # Good variable names regexes, separated by a comma. If names match any regex,
 # they will always be accepted
@@ -504,7 +515,7 @@ check-protected-access-in-special-methods=no
 defining-attr-methods=__init__,
                       __new__,
                       setUp,
-                      __post_init__
+                      __post_init__,
 
 # List of member names, which should be excluded from the protected access
 # warning.
@@ -512,7 +523,10 @@ exclude-protected=_asdict,
                   _fields,
                   _replace,
                   _source,
-                  _make
+                  _make,
+                  # Support to "django" library.
+                  _meta,
+                  _default_manager
 
 # List of valid names for the first argument in a class method.
 valid-classmethod-first-arg=cls

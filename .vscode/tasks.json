@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Python: Graphene Django graphql_schema watch",
+            "type": "process",
+            "command": "${command:python.interpreterPath}",
+            "args": [
+                "manage.py",
+                "graphql_schema",
+                "--watch"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "DJANGO_SETTINGS_MODULE": "project.debug"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+# GraphQL Config
+# https://graphql-config.com/introduction
+
+schema:
+  "${REACT_APP_PROXY:'http://server:8000'}/graphql/"
