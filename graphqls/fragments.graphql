@@ -1,0 +1,19 @@
+# Root fragments.
+
+fragment ErrorTypeField on ErrorType {
+  field
+  messages
+}
+
+fragment DeleteTypeField on DjangoModelDeleteType {
+  count
+  deleted
+}
+
+fragment PageInfoField on PageInfo {
+  hasNextPage
+  hasPreviousPage
+  startCursor
+  endCursor
+  __typename
+}

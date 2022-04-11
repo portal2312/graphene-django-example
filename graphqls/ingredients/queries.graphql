@@ -1,0 +1,103 @@
+# Ingredients queries.
+
+query category ($id: ID!) {
+  category (id: $id) {
+    ...CategoryField
+  }
+}
+
+query categories(
+  $offset: Int = null
+  $before: String = null
+  $after: String = null
+  $first: Int = null
+  $last: Int = null
+  $name: String = null
+) {
+  categories(
+    offset: $offset
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    name: $name
+  ) {
+    pageInfo {
+      ...PageInfoField
+    }
+    edges {
+      node {
+        ...CategoryField
+      }
+      cursor
+      __typename
+    }
+    __typename
+  }
+}
+
+query ingredient ($id: ID!) {
+  ingredient (id: $id) {
+    ...IngredientField
+  }
+}
+
+query ingredients(
+    $offset: Int = null
+    $before: String = null
+    $after: String = null
+    $first: Int = null
+    $last: Int = null
+    $name: String = null
+    $name_Icontains: String = null
+    $notes_Icontains: String = null
+    $category: ID = null
+    $type: String = null
+    $createTime_Gte: DateTime = null
+    $createTime_Lt: DateTime = null
+    $createTime_Lte: DateTime = null
+    $createTime_Range: [DateTime] = null
+    $updateTime_Gte: DateTime = null
+    $updateTime_Lt: DateTime = null
+    $updateTime_Lte: DateTime = null
+    $updateTime_Range: [DateTime] = null
+    $category_Name_Icontains: String = null
+    $categoryName: String = null
+    $order: String = null
+) {
+  ingredients(
+    offset: $offset
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    name: $name
+    name_Icontains: $name_Icontains
+    notes_Icontains: $notes_Icontains
+    category: $category
+    type: $type
+    createTime_Gte: $createTime_Gte
+    createTime_Lt: $createTime_Lt
+    createTime_Lte: $createTime_Lte
+    createTime_Range: $createTime_Range
+    updateTime_Gte: $updateTime_Gte
+    updateTime_Lt: $updateTime_Lt
+    updateTime_Lte: $updateTime_Lte
+    updateTime_Range: $updateTime_Range
+    category_Name_Icontains: $category_Name_Icontains
+    categoryName: $categoryName
+    order: $order
+  ) {
+    pageInfo {
+      ...PageInfoField
+    }
+    edges {
+      node {
+        ...IngredientField
+      }
+      cursor
+      __typename
+    }
+    __typename
+  }
+}

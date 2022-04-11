@@ -1,0 +1,15 @@
+// Pagination - first and after
+//
+// 계산식: (first, after) = (pageSize, pageInfo.endCursor)
+//
+// - relay 를 활용한 pagination 정석이다.
+// - pageInfo fields 활용할 수 있다. (hasNextPage: 다음 페이지 존재 여부, )
+// - 조회 기준은 현재 내가 마지막까지 조회된 cursor 기준이다. (추가된 페이지로 내가 조회된 화면이 변하지 않는다)
+// - 최초를 제외한 나머지 pagination 은 반드시 이전 pageInfo.endCursor 값을 참조를 받아야 한다.
+//
+// https://graphql.org/learn/pagination/
+// https://heodolf.tistory.com/112
+{
+    "first": 2,
+    "after": "YXJyYXljb25uZWN0aW9uOjE="
+}

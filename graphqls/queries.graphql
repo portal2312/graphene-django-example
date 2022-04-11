@@ -1,0 +1,10 @@
+# Root queries
+
+query GetEnum ($name: String!) {
+  __type (name: $name) {
+    enumValues {
+      name
+      description
+    }
+  }
+}

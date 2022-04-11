@@ -1,0 +1,23 @@
+# Ingredients fragments.
+
+fragment CategoryField on CategoryType {
+  id
+  name
+  pk
+  __typename
+}
+
+fragment IngredientField on IngredientType {
+  id
+  name
+  notes
+  category {
+    ...CategoryField
+  }
+  type
+  createTime
+  updateTime
+  pk
+  createTimeStr
+  __typename
+}

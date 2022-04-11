@@ -1,0 +1,14 @@
+// Pagination - first and offset
+//
+// 계산식: (first, offset) = (pageSize, (page - 1) * pageSize)
+//
+// - 조회 기준은 Page 단위이다.
+// - 조회할 page(현재 페이지 수), pageSize(페이지 최대 행 수) 만 알면 즉시 알 수 있다.
+// - pageInfo.has*Page fields 활용 할 수 없다.
+//
+// https://graphql.org/learn/pagination/
+// https://heodolf.tistory.com/112
+{
+    "first": 2,
+    "offset": 2
+}

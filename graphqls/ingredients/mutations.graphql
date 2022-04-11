@@ -1,0 +1,50 @@
+# Ingredients mutations.
+
+mutation saveCategory ($input: SaveCategoryMutationInput!) {
+  saveCategory (input: $input) {
+    category {
+      ...CategoryField
+    }
+    errors {
+      ...ErrorTypeField
+    }
+  }
+}
+
+
+mutation saveIngredient ($input: SaveIngredientMutationInput!) {
+  saveIngredient (input: $input) {
+    ingredient {
+      ...IngredientField
+    }
+    errors {
+      ...ErrorTypeField
+    }
+  }
+}
+
+mutation deleteCategory ($input: DeleteCategoryMutationInput!) {
+  deleteCategory (input: $input) {
+    category {
+      ...CategoryField
+    }
+    deleted {
+      ...DeleteTypeField
+    }
+    clientMutationId
+    __typename
+  }
+}
+
+mutation deleteIngredient ($input: DeleteIngredientMutationInput!) {
+  deleteIngredient (input: $input) {
+    ingredient {
+      ...IngredientField
+    }
+    deleted {
+      ...DeleteTypeField
+    }
+    clientMutationId
+    __typename
+  }
+}

@@ -1,41 +1,34 @@
 """Ingredients Models."""
-from graphene import Field, List, ObjectType, String
-from graphene_django import DjangoObjectType
+from graphene import ObjectType, relay
+from graphene_django.filter import DjangoFilterConnectionField
 
-from .models import Category, Ingredient
+from .mutations import (
+    DeleteCategoryMutation,
+    DeleteIngredientMutation,
+    SaveCategoryMutation,
+    SaveIngredientMutation,
+)
+from .types import (
+    CategoryType,
+    IngredientType,
+)
 
 
-class CategoryType(DjangoObjectType):
-    """Category Type."""
+class Mutation(ObjectType):
+    """Ingredients root mutation."""
 
-    class Meta:
-        """Category Type meta."""
-        model = Category
-        fields = ("id", "name", "ingredients")
+    delete_category = DeleteCategoryMutation.Field()
+    save_category = SaveCategoryMutation.Field()
 
-
-class IngredientType(DjangoObjectType):
-    """Ingredient Type."""
-
-    class Meta:
-        """Ingredient Type meta."""
-        model = Ingredient
-        fields = ("id", "name", "notes", "category")
+    delete_ingredient = DeleteIngredientMutation.Field()
+    save_ingredient = SaveIngredientMutation.Field()
 
 
 class Query(ObjectType):
-    """Ingredients Query."""
-    all_ingredients = List(IngredientType)
-    category_by_name = Field(CategoryType, name=String(required=True))
+    """Ingredients root query."""
 
-    def resolve_all_ingredients(root, info):
-        """모든 Ingredient 목록 가져오기."""
-        # We can easily optimize query count in the resolve method
-        return Ingredient.objects.select_related("category").all()
+    category = relay.Node.Field(CategoryType)
+    categories = DjangoFilterConnectionField(CategoryType, max_limit=None)
 
-    def resolve_category_by_name(root, info, name):
-        """Category 가져오기."""
-        try:
-            return Category.objects.get(name=name)
-        except Category.DoesNotExist:
-            return None
+    ingredient = relay.Node.Field(IngredientType)
+    ingredients = DjangoFilterConnectionField(IngredientType)

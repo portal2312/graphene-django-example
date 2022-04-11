@@ -1,52 +1,83 @@
 [
-    {
-        "pk": 1,
-        "model": "ingredients.category",
-        "fields": {
-            "name": "Dairy"
-        }
-    },
-    {
-        "pk": 2,
-        "model": "ingredients.category",
-        "fields": {
-            "name": "Meat"
-        }
-    },
-    {
-        "pk": 1,
-        "model": "ingredients.ingredient",
-        "fields": {
-            "name": "Eggs",
-            "notes": "Good old eggs",
-            "category": 1
-        }
-    },
-    {
-        "pk": 2,
-        "model": "ingredients.ingredient",
-        "fields": {
-            "name": "Milk",
-            "notes": "Comes from a cow",
-            "category": 1
-        }
-    },
-    {
-        "pk": 3,
-        "model": "ingredients.ingredient",
-        "fields": {
-            "name": "Beef",
-            "notes": "Much like milk, this comes from a cow",
-            "category": 2
-        }
-    },
-    {
-        "pk": 4,
-        "model": "ingredients.ingredient",
-        "fields": {
-            "name": "Chicken",
-            "notes": "Definitely doesn't come from a cow",
-            "category": 2
-        }
-    }
+{
+  "model": "ingredients.category",
+  "pk": 1,
+  "fields": {
+    "name": "Dairy"
+  }
+},
+{
+  "model": "ingredients.category",
+  "pk": 2,
+  "fields": {
+    "name": "Meat"
+  }
+},
+{
+  "model": "ingredients.category",
+  "pk": 3,
+  "fields": {
+    "name": "C1"
+  }
+},
+{
+  "model": "ingredients.ingredient",
+  "pk": 1,
+  "fields": {
+    "name": "Eggs",
+    "notes": "Good old eggs",
+    "category": 1,
+    "type": "COMPLEX",
+    "create_time": "2022-04-07T16:03:42.676",
+    "update_time": "2022-04-07T16:03:42.676"
+  }
+},
+{
+  "model": "ingredients.ingredient",
+  "pk": 2,
+  "fields": {
+    "name": "Milk",
+    "notes": "Comes from a cow",
+    "category": 1,
+    "type": "COMPLEX",
+    "create_time": "2022-04-07T16:03:42.676",
+    "update_time": "2022-04-07T16:03:42.676"
+  }
+},
+{
+  "model": "ingredients.ingredient",
+  "pk": 3,
+  "fields": {
+    "name": "Beef",
+    "notes": "Much like milk, this comes from a cow",
+    "category": 2,
+    "type": "COMPLEX",
+    "create_time": "2022-04-07T16:03:42.676",
+    "update_time": "2022-04-07T16:03:42.676"
+  }
+},
+{
+  "model": "ingredients.ingredient",
+  "pk": 4,
+  "fields": {
+    "name": "Chicken",
+    "notes": "Definitely doesn't come from a cow",
+    "category": 2,
+    "type": "COMPLEX",
+    "create_time": "2022-04-07T16:03:42.676",
+    "update_time": "2022-04-07T16:03:42.676"
+  }
+},
+{
+  "model": "ingredients.ingredient",
+  "pk": 5,
+  "fields": {
+    "name": "I5",
+    "notes": "i5",
+    "category": 3,
+    "type": "COMPLEX",
+    "create_time": "2022-04-07T16:16:51.361",
+    "update_time": "2022-04-07T16:17:46.810"
+  }
+}
 ]
