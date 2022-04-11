@@ -1,8 +1,28 @@
-# graphene-django-extras-example
+# graphene-django-example
 
 `graphene-django-extras` 에 대한 예제 프로젝트입니다.
 
 ## Installation
+
+Python standard library 의 가상 환경 모듈인 [`venv`](https://docs.python.org/ko/3/library/venv.html) 를 이용하여 가상환경을 생성합니다:
+
+```bash
+python -m venv --upgrade-deps .venv
+```
+
+- `--upgrade-deps`: 핵심 종속성 업그레이드하기.
+
+가상 환경 활성화하기:
+
+```bash
+source .venv/bin/activate
+```
+
+[`pip`](https://pip.pypa.io/en/stable/) 를 이용하여 필수 패키지 설치합니다:
+
+```bash
+python -m pip install -r requirements.txt
+```
 
 Django [`makemigrations`](https://docs.djangoproject.com/en/4.0/ref/django-admin/#makemigrations) 명령어를 사용하여 _local app_ 들의 migrate 파일을 생성합니다:
 
@@ -77,12 +97,8 @@ Refer to [Introspection Schema](https://docs.graphene-python.org/projects/django
 
 ### Django Admin Web Page
 
-Django Admin 이용하기.
-
-URL: `http://0.0.0.0:8000/admin`
+Go to [Django Admin Page](http://0.0.0.0:8000/admin).
 
 ### GraphiQL API Web Page
 
-GraphQL API 질의를 할 수 있는 Web Page 이용하기.
-
-URL: `http://0.0.0.0:8000/graphql`
+Go to [GraphQL API Page](http://0.0.0.0:8000/graphql).
